@@ -31,6 +31,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Load and Setup plugins
 local plugins  = require("plugins")
 require("lazy").setup(plugins)
+require('lualine').setup()
 --[[
 require("mason").setup({
 })
@@ -67,6 +68,16 @@ vim.opt.path = ".,,**" -- paths to search when using :find (sus)
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- This is stupid
+vim.api.nvim_set_keymap(
+    "n",
+    "<BS>",
+    "<C-w>h",
+    {
+        noremap = true
+    }
+)
 
 for _, direction in ipairs(directions) do
     vim.api.nvim_set_keymap(

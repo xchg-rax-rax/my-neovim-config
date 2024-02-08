@@ -5,7 +5,6 @@ local plugins = {
       lazy = false,
       priority = 1000, -- load theme first
       config = function()
-        -- load the colorscheme here
         vim.cmd.colorscheme("night-owl")
       end,
     },
@@ -35,6 +34,14 @@ local plugins = {
             "pyright",
             "rust_analyzer",
         }
+    },
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
 }
 return plugins
