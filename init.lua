@@ -32,20 +32,6 @@ vim.opt.rtp:prepend(lazypath)
 local plugins  = require("plugins")
 require("lazy").setup(plugins)
 require('lualine').setup()
---[[
-require("mason").setup({
-})
-require("mason-lspconfig").setup({
-    ensure_installed = {
-        "lua_ls",
-        "pyright",
-        "rust_analyzer",
-    }
-})
-require("lspconfig").lua_ls.setup {}
-require("lspconfig").pyright.setup {}
-require("lspconfig").black.setup {}
-]]
 
 --------------------------------
 -- General Configuration Options
@@ -78,17 +64,6 @@ vim.api.nvim_set_keymap(
         noremap = true
     }
 )
-
-for _, direction in ipairs(directions) do
-    vim.api.nvim_set_keymap(
-        "n",
-        "<C-" .. direction .. ">",
-        "<C-w>" .. direction,
-        {
-            noremap = true
-        }
-    )
-end
 
 local function generate_command(arrow)
     local command = ":"
